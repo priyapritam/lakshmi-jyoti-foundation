@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/lakshmi_jyoti_foundation_db?createDatabaseIfNotExist=true
+    username: root
+    password: Priyaan#100%
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  thymeleaf:
+    enabled: true
+    check-template-location: true
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML5
