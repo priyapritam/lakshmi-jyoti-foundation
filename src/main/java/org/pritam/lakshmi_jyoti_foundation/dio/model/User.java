@@ -5,6 +5,7 @@ import lombok.*;
 import org.pritam.lakshmi_jyoti_foundation.dio.enums.Role;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Getter
@@ -38,5 +39,15 @@ public class User {
     private Role role;
 
     @Column(name = "created_at",nullable = false, updatable = false)
-    private LocalDateTime createdat = LocalDateTime.now();
+    private LocalDateTime createdAt = LocalDateTime.now();
+
+    // Relationship
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Donation> donations;
+
+    @OneToMany(mappedBy = "createdBy", cascade = CascadeType.ALL)
+    private List<Event> events;
+
+    @OneToMany(mappedBy = "conductedBy", cascade = CascadeType.ALL)
+    private List<Activity> activities;
 }
